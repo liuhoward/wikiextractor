@@ -44,6 +44,10 @@ The installer also installs two scripts for direct invocation:
 
 ## Usage
 
+```sh
+wikiextractor -o wikipedia -b 30000M --json --no-templates --mark-headers --processes 16 enwiki-20210620-pages-articles.xml.bz2
+```
+
 ### Wikiextractor
 The script is invoked with a Wikipedia dump file as an argument:
 
