@@ -811,6 +811,8 @@ class Extractor():
     # Whether to produce json instead of the default <doc> output format.
     toJson = False
 
+    mark_headers = False
+
     def __init__(self, id, revid, urlbase, title, page):
         """
         :param page: a list of lines.
@@ -854,7 +856,7 @@ class Extractor():
         """
         logging.debug("%s\t%s", self.id, self.title)
         text = ''.join(self.page)
-        text = self.clean_text(text, html_safe=html_safe)
+        text = self.clean_text(text, mark_headers=self.mark_headers, html_safe=html_safe)
 
         if self.to_json:
             json_data = {

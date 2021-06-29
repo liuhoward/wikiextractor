@@ -542,6 +542,8 @@ def main():
                         help="use or create file containing templates")
     groupP.add_argument("--no-templates", action="store_false",
                         help="Do not expand templates")
+    groupP.add_argument("--mark-headers", action="store_true",
+                        help="keep marks for section headers")
     groupP.add_argument("--html-safe", default=True,
                         help="use to produce HTML safe output within <doc>...</doc>")
     default_process_count = cpu_count() - 1
@@ -563,6 +565,7 @@ def main():
 
     Extractor.keepLinks = args.links
     Extractor.HtmlFormatting = args.html
+    Extractor.mark_headers = args.mark_headers
     if args.html:
         Extractor.keepLinks = True
     Extractor.to_json = args.json
